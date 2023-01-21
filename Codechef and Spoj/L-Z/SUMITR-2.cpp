@@ -1,0 +1,3 @@
+#include <bits/stdc++.h> 
+#define sc(n) scanf("%lld",&n) 
+#define pr(n) printf("%lld\n", n)using namespace std;ll a[110][110];int main(){ll t,n,ans;sc(t);while(t--){memset(a,0,sizeof(a));sc(n);for(ll i=0; i<n; i++){for(ll j=0; j<=i; j++)sc(a[i][j]);}for(ll i=1; i<n; i++){a[i][0]+=a[i-1][0];for(ll j=1; j<=i; j++)a[i][j]+=max(a[i-1][j-1],a[i-1][j]);}ans=INT_MIN;for(ll i=0; i<n; i++){ans=max(ans,a[n-1][i]);}pr(ans);}return 0;}
